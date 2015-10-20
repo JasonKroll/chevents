@@ -1,0 +1,6 @@
+<h1>Invite Guest</h1>
+<p><%= @guest.name %> (<%= @guest.email %>) already exists.</p>
+<p>Do you want to add them to the guest list for <%= @event.name %>?</p>
+<%= form_for :guest, :url=>create_invite_event_guest_path(@event, @guest) do |f| %>
+  <%= f.submit "Add to list", disable_with: 'Add to listing...' %>
+<% end %>

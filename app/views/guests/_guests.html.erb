@@ -1,0 +1,13 @@
+<tr>
+    <td><%= link_to guest.name, event_guest_path(@event, guest) %></td>
+    <td><%= guest.email %></td>
+    <td><%= guest.address %></td>
+    <td class="text-center"><%= guest.number_of_guests %></td>
+    <% if guest.rsvp? %>
+        <td class="text-center">Yes</td>
+    <% else %>
+        <td class="text-center">No</td>
+    <% end %>
+    <td class="text-center"></td>
+    <td><%= link_to "Remove", event_guest_path(@event, guest), method: "delete",  data: {confirm: "Are you sure?"} %></td>
+</tr>

@@ -1,0 +1,16 @@
+<h1>
+    Events
+    <small><%= link_to 'Create', new_event_path %></small>
+</h1>
+<table class="table">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render @events %>
+    </tbody>
+</table>

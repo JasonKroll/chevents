@@ -1,0 +1,63 @@
+<div class="row"> 
+  <div class="col-md-8 col-md-offset-2">
+    <%= render 'layouts/errors', object: @guest %>
+    <h2 class="text-center">Add Guest</h2>
+    <%= form_for(@guest, :url => {:controller => 'guests', :action => 'create'}, html: { class: "form-horizontal"}) do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "Name", class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= f.text_field :name, class: "form-control" %>
+            <span id="helpBlock" class="help-block">
+              The name on the invitation e.g. Mr and Mrs John Smith, Bob and Mary Jones etc.
+            </span>
+          </div>
+          
+        </div>
+        <div class="form-group">
+          <%= f.label :number_of_guests, "Number of guests on the invite", class: "col-sm-10 control-label" %>
+          <div class="col-sm-2">
+            <%= f.select :number_of_guests, (1..10), {}, { class: "form-control"} %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, "Email", class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= f.email_field :email, class: "form-control" %>
+            <span id="helpBlock" class="help-block">
+              Email address of the primary contact. They will use this to RSVP.
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :address1, "Address 1", class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= f.text_field :address1, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :address2, "Address 2", class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= f.text_field :address2, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :suburb, "Suburb", class: "col-sm-3 control-label" %>
+          <div class="col-sm-5">
+            <%= f.text_field :suburb, class: "form-control" %>
+          </div>
+          <%= f.label :post_code, "Post Code", class: "col-sm-2 control-label" %>
+          <div class="col-sm-2">
+            <%= f.text_field :post_code, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <%= f.submit "Add Guest", :disable_with => 'Saving...', class: "btn btn-primary" %>
+          </div>
+        </div>
+      
+    <% end %>  
+    <%= debug @guest %>
+    
+  </div>
+</div>

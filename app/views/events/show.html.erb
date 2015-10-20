@@ -1,0 +1,52 @@
+<div id="event-details">
+    <h1>
+        <%= @event.name %>
+        <small><%= link_to 'Edit', edit_event_path(@event) %></small>
+    </h1>
+    <h3><%= @event.description %></h3>
+</div>
+
+<div class="guest-list">
+    <h2>Guests</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Guest Names</th>
+                <th>Email</th>
+                <th>Postal Address</th>
+                <th>No. Invited</th>
+                <th class="text-center">RSVP'd?</th>
+                <th class="text-center">No. Confirmed</th>
+                <th><%= link_to "Add guest", new_event_guest_path(@event) %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= render partial: 'guests/guests', collection: @guests, as: :guest %>
+        </tbody>
+    </table>
+    <p>Number of invitations: <strong><%= @event.guests.count %></strong></p>
+    <p>Number of invited guests: <strong><%= @event.total_invited %></strong></p>
+    <p>Number of RSVP's:<strong></strong></p>
+    <p>Number of confirmed guests:<strong></strong></p>
+    
+</div>
+<% if !@event.response.nil? %>
+    <div class="rsvp">
+        <h2>RSVP</h2>
+        
+    
+    </div>
+<% end %>
+<!--<h2>Page Content-->
+<!--    <small><%= link_to 'Edit', edit_page_event_path(@event), remote: true %></small>-->
+<!--    <small><%= link_to 'Show', page_event_path(@event) %></small>-->
+<!--</h2>-->
+
+<!--<div class="row">-->
+<!--    <div class="page-content col-xs-12" id="page-content">-->
+<!--        <div class="page-header-background center-block">-->
+<!--            <div class="page-header"></div>        -->
+<!--        </div>-->
+<!--        <%= markdown(@event.content) %>-->
+<!--    </div>-->
+<!--</div>-->
